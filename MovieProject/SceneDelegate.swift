@@ -33,9 +33,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window?.rootViewController = UIHostingController(rootView: contentView)
         window?.makeKeyAndVisible()
-        
-        // Устанавливаем цвет фона окна
-        window?.backgroundColor = UIColor(red: 128/255, green: 0/255, blue: 0/255, alpha: 1)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

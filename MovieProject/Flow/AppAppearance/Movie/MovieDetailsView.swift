@@ -8,7 +8,8 @@ struct MovieDetailsView: View {
     @State private var trailerState: TrailerState = .loading
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     @State private var showHeartOverlay = false
-    
+    @State private var dominantColors: (Color, Color) = (.black, .black)
+
     let userName = Auth.auth().currentUser?.displayName ?? "Anonymous"
     
     enum TrailerState {
@@ -16,136 +17,182 @@ struct MovieDetailsView: View {
         case loaded(String)
         case error(String)
     }
-    
+
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                // Header with poster and basic info
-                HStack(alignment: .top, spacing: 16) {
-                    KFImage(URL(string: movie.posterUrl))
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width * 0.4, height: 250)
-                        .clipped()
-                        .cornerRadius(12)
-                        .shadow(radius: 5)
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(movie.title)
-                            .font(.title2)
+        GeometryReader { geometry in
+            ZStack {
+                LinearGradient(
+                    gradient: Gradient(colors: [dominantColors.0.opacity(0.6), dominantColors.1.opacity(0.6)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .edgesIgnoringSafeArea(.all)
+                
+                Color.black.opacity(0.2)
+                    .edgesIgnoringSafeArea(.all)
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text(movie.title.uppercased())
+                            .font(.largeTitle)
                             .bold()
                             .foregroundColor(.white)
-                            .lineLimit(2)
-                        
-                        HStack {
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
-                            Text(String(format: "%.1f", movie.vote_average))
-                                .foregroundColor(.white)
-                        }
-                        
-                        Text("Released: \(movie.releaseDate)")
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                        
-                        let genreNames = movie.genre_ids.compactMap { genreId in
-                            genres.first { $0.id == genreId }?.name
-                        }
-                        if !genreNames.isEmpty {
-                            Text(genreNames.joined(separator: ", "))
-                                .font(.subheadline)
-                                .foregroundColor(.gray)
-                                .lineLimit(2)
-                        }
-                    }
-                }
-                .padding(.horizontal)
-                
-                // Trailer Section
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Trailer")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
-                    
-                    Group {
-                        switch trailerState {
-                        case .loading:
-                            ProgressView("Loading trailer...")
-                                .frame(height: 200)
-                                .frame(maxWidth: .infinity)
-                                .foregroundColor(.white)
-                        case .loaded(let url):
-                            WebView(url: url)
-                                .frame(height: 200)
+                            .padding(.horizontal)
+                            .padding(.top)
+
+                        HStack(alignment: .top, spacing: 16) {
+                            KFImage(URL(string: movie.posterUrl))
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: UIScreen.main.bounds.width * 0.45, height: 250)
+                                .clipped()
                                 .cornerRadius(12)
-                        case .error(let message):
-                            VStack(spacing: 8) {
-                                Image(systemName: "exclamationmark.triangle")
-                                    .font(.largeTitle)
-                                    .foregroundColor(.red)
-                                Text("Trailer not available")
-                                    .foregroundColor(.white)
-                                Text(message)
-                                    .font(.caption)
-                                    .foregroundColor(.gray)
+                                .shadow(radius: 5)
+                                .onAppear {
+                                    extractDominantColors()
+                                }
+
+                            VStack(alignment: .leading, spacing: 8) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Top Rated")
+                                        .font(.caption)
+                                        .foregroundColor(.white.opacity(0.7))
+                                    Text("\(String(format: "%.1f", movie.rating))/10")
+                                        .font(.title2)
+                                        .bold()
+                                        .foregroundColor(.white)
+                                }
+
+                                Text("Year: \(movie.releaseDate.prefix(4))")
+                                    .font(.subheadline)
+                                    .foregroundColor(.white.opacity(0.8))
+
+                                Group {
+                                    Text("Reduced Game")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+
+                                    Text("James Mangold")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white.opacity(0.7))
+
+                                    Text("Create, to create, play")
+                                        .font(.caption)
+                                        .foregroundColor(.white.opacity(0.6))
+
+                                    Divider().background(Color.white.opacity(0.3))
+
+                                    Text("David James Kelly")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white.opacity(0.7))
+
+                                    Text("Learn")
+                                        .font(.caption)
+                                        .foregroundColor(.white.opacity(0.6))
+
+                                    Divider().background(Color.white.opacity(0.3))
+
+                                    Text("Actuar 12th Unit | REVERSITY")
+                                        .font(.caption)
+                                        .foregroundColor(.white.opacity(0.6))
+                                }
                             }
-                            .frame(height: 200)
-                            .frame(maxWidth: .infinity)
+                            .padding(.trailing)
                         }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                // Overview Section
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Overview")
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.white)
-                    
-                    Text(movie.description)
-                        .font(.body)
-                        .foregroundColor(.white.opacity(0.9))
-                        .lineSpacing(4)
-                }
-                .padding(.horizontal)
-                
-                // Action Buttons
-                VStack(spacing: 16) {
-                    Button(action: toggleFavorite) {
-                        HStack {
-                            Image(systemName: favoritesViewModel.isFavorite(movie) ? "heart.fill" : "heart")
-                                .foregroundColor(favoritesViewModel.isFavorite(movie) ? .red : .white)
-                            Text(favoritesViewModel.isFavorite(movie) ? "Remove from Favorites" : "Add to Favorites")
+                        .padding(.horizontal)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Trailer")
+                                .font(.headline)
                                 .foregroundColor(.white)
+                                .padding(.horizontal)
+
+                            Group {
+                                switch trailerState {
+                                case .loading:
+                                    ProgressView("Loading trailer...")
+                                        .frame(height: 200)
+                                        .frame(maxWidth: .infinity)
+
+                                case .loaded(let url):
+                                    WebView(url: url)
+                                        .frame(height: 200)
+                                        .cornerRadius(8)
+
+                                case .error(let message):
+                                    VStack {
+                                        Image(systemName: "exclamationmark.triangle")
+                                            .font(.largeTitle)
+                                            .foregroundColor(.white)
+                                        Text("Trailer not available")
+                                            .foregroundColor(.white)
+                                        Text(message)
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                    }
+                                    .frame(height: 200)
+                                    .frame(maxWidth: .infinity)
+                                }
+                            }
+                            .padding(.horizontal)
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red.opacity(0.2))
-                        .cornerRadius(12)
-                    }
-                    
-                    NavigationLink(destination: ReviewView(movieId: movie.id, userName: userName)) {
-                        HStack {
-                            Image(systemName: "text.bubble")
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Overview")
+                                .font(.headline)
                                 .foregroundColor(.white)
-                            Text("View & Write Reviews")
-                                .foregroundColor(.white)
+                            Text(movie.description)
+                                .font(.body)
+                                .foregroundColor(.white.opacity(0.9))
+                                .lineSpacing(4)
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.red.opacity(0.2))
-                        .cornerRadius(12)
+                        .padding(.horizontal)
+
+                        // Action buttons at the bottom
+                        VStack(spacing: 12) {
+                            // Add to Favorites button
+                            Button(action: toggleFavorite) {
+                                HStack {
+                                    Image(systemName: favoritesViewModel.isFavorite(movie) ? "heart.fill" : "heart")
+                                        .foregroundColor(favoritesViewModel.isFavorite(movie) ? .red : .white)
+                                    Text(favoritesViewModel.isFavorite(movie) ? "Remove from Favorites" : "Add to Favorites")
+                                        .foregroundColor(.white)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.black.opacity(0.3))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.white, lineWidth: 1)
+                                )
+                                .cornerRadius(10)
+                            }
+
+                            // Reviews button
+                            NavigationLink(destination: ReviewView(movieId: movie.id, movieTitle: movie.title, userName: userName)) {
+                                HStack {
+                                    Image(systemName: "text.bubble")
+                                        .foregroundColor(.white)
+
+                                    Text("View & Write Reviews")
+                                        .foregroundColor(.white)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.black.opacity(0.3))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.white, lineWidth: 1)
+                                )
+                                .cornerRadius(10)
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.bottom, 30)
                     }
                 }
-                .padding(.horizontal)
-                .padding(.top, 8)
             }
-            .padding(.vertical)
         }
-        .background(Color.black.edgesIgnoringSafeArea(.all))
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             loadTrailer()
@@ -163,11 +210,28 @@ struct MovieDetailsView: View {
             }
         )
     }
-    
+
+    private func extractDominantColors() {
+        guard let url = URL(string: movie.posterUrl) else { return }
+
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            switch result {
+            case .success(let imageResult):
+                let uiImage = imageResult.image
+                if let avgColor = uiImage.averageColor {
+                    dominantColors.0 = Color(avgColor)
+                    dominantColors.1 = Color(avgColor.darker(by: 30) ?? avgColor)
+                }
+            case .failure(let error):
+                print("Error loading image: \(error)")
+            }
+        }
+    }
+
     private func loadTrailer() {
         trailerState = .loading
         let searchQuery = "\(movie.title) trailer \(movie.releaseDate.prefix(4))"
-        
+
         APICaller.shared.getMovie(with: searchQuery) { result in
             DispatchQueue.main.async {
                 switch result {
@@ -180,11 +244,12 @@ struct MovieDetailsView: View {
                     }
                 case .failure(let error):
                     trailerState = .error(error.localizedDescription)
+                    print("Trailer loading failed: \(error.localizedDescription)")
                 }
             }
         }
     }
-    
+
     private func toggleFavorite() {
         if favoritesViewModel.isFavorite(movie) {
             favoritesViewModel.removeFavorite(movie)
@@ -244,3 +309,5 @@ extension UIColor {
         return nil
     }
 }
+
+// MARK: - WebView for YouTube Trailer
