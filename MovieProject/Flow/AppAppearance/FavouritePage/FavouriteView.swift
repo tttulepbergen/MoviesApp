@@ -5,7 +5,6 @@ struct FavoriteView: View {
     @EnvironmentObject var favoritesViewModel: FavoritesViewModel
     
     init() {
-
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = [
@@ -24,7 +23,7 @@ struct FavoriteView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 37/255, green: 10/255, blue: 2/255)
+                Color.black
                     .edgesIgnoringSafeArea(.all)
                 
                 ScrollView {
@@ -77,7 +76,7 @@ struct MovieFavoriteRow: View {
                             .font(.system(size: 20, weight: .semibold))
                             .foregroundColor(.white)
                         
-                        Text(movie.releaseDate ?? "Unknown")
+                        Text(movie.releaseDate)
                             .font(.system(size: 16))
                             .foregroundColor(.gray)
                         

@@ -11,50 +11,75 @@ struct LoginView: View {
     @ObservedObject var viewModel: AuthViewModel
     @Binding var showRegistration: Bool
     
-    let burgundyColor = Color(red: 37/255, green: 10/255, blue: 2/255)
     let accentColor = Color.red
     
     var body: some View {
         ZStack {
-            burgundyColor.edgesIgnoringSafeArea(.all)
+            Color.black.edgesIgnoringSafeArea(.all)
+            
             VStack(spacing: 32) {
                 Spacer()
-                Image(systemName: "person.crop.circle.badge.plus")
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .foregroundColor(.white.opacity(0.8))
-                    .shadow(radius: 8)
-                    .padding(.bottom, 8)
                 
-                TextField("Email", text: $viewModel.email)
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
+                // Logo and Title
+                VStack(spacing: 16) {
+                    Image(systemName: "film")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundColor(.white.opacity(0.8))
+                        .shadow(radius: 8)
+                    
+                    Text("Welcome Back")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(.white)
+                }
+                .padding(.bottom, 32)
+                
+                // Login Form
+                VStack(spacing: 20) {
+                    TextField("Email", text: $viewModel.email)
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .padding()
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                    
+                    SecureField("Password", text: $viewModel.password)
+                        .padding()
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                    
+                    Button("Login") {
+                        viewModel.login()
+                    }
                     .padding()
-                    .background(Color.gray.opacity(0.1))
+                    .frame(maxWidth: .infinity)
+                    .background(accentColor)
+                    .foregroundColor(.white)
                     .cornerRadius(10)
-                            
-                SecureField("Password", text: $viewModel.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(10)
-                            
-                Button("Login") {
-                    viewModel.login()
+                    .shadow(radius: 5)
                 }
-                .padding()
-                .background(Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(10)
-
-                Button("Forgot Password?") {
-                    viewModel.sendPasswordReset(email: viewModel.email)
+                .padding(.horizontal, 32)
+                
+                // Additional Options
+                VStack(spacing: 16) {
+                    Button("Forgot Password?") {
+                        viewModel.sendPasswordReset(email: viewModel.email)
+                    }
+                    .foregroundColor(.white.opacity(0.8))
+                    
+                    HStack {
+                        Text("Don't have an account?")
+                            .foregroundColor(.white.opacity(0.8))
+                        Button("Sign Up") {
+                            showRegistration = true
+                        }
+                        .foregroundColor(accentColor)
+                    }
                 }
-                .foregroundColor(.blue)
-                            
-                Button("Don't have an account? Sign Up") {
-                    showRegistration = true
-                }
-                .foregroundColor(.blue)
+                
                 Spacer()
             }
             .padding()

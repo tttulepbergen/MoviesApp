@@ -16,23 +16,140 @@ struct MovieDetailsView: View {
         case loaded(String)
         case error(String)
     }
-
+    
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 50) {
-                trailerSection()
-                favoriteButton()
-                reviewsLink()
-                movieInfoSection()
-                overviewSection()
-                Spacer()
+            VStack(alignment: .leading, spacing: 20) {
+                // Header with poster and basic info
+                HStack(alignment: .top, spacing: 16) {
+                    KFImage(URL(string: movie.posterUrl))
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: UIScreen.main.bounds.width * 0.4, height: 250)
+                        .clipped()
+                        .cornerRadius(12)
+                        .shadow(radius: 5)
+                    
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(movie.title)
+                            .font(.title2)
+                            .bold()
+                            .foregroundColor(.white)
+                            .lineLimit(2)
+                        
+                        HStack {
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Text(String(format: "%.1f", movie.vote_average))
+                                .foregroundColor(.white)
+                        }
+                        
+                        Text("Released: \(movie.releaseDate)")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        
+                        let genreNames = movie.genre_ids.compactMap { genreId in
+                            genres.first { $0.id == genreId }?.name
+                        }
+                        if !genreNames.isEmpty {
+                            Text(genreNames.joined(separator: ", "))
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                                .lineLimit(2)
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                
+                // Trailer Section
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Trailer")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.white)
+                        .padding(.horizontal)
+                    
+                    Group {
+                        switch trailerState {
+                        case .loading:
+                            ProgressView("Loading trailer...")
+                                .frame(height: 200)
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(.white)
+                        case .loaded(let url):
+                            WebView(url: url)
+                                .frame(height: 200)
+                                .cornerRadius(12)
+                        case .error(let message):
+                            VStack(spacing: 8) {
+                                Image(systemName: "exclamationmark.triangle")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.red)
+                                Text("Trailer not available")
+                                    .foregroundColor(.white)
+                                Text(message)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                            }
+                            .frame(height: 200)
+                            .frame(maxWidth: .infinity)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                
+                // Overview Section
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Overview")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.white)
+                    
+                    Text(movie.description)
+                        .font(.body)
+                        .foregroundColor(.white.opacity(0.9))
+                        .lineSpacing(4)
+                }
+                .padding(.horizontal)
+                
+                // Action Buttons
+                VStack(spacing: 16) {
+                    Button(action: toggleFavorite) {
+                        HStack {
+                            Image(systemName: favoritesViewModel.isFavorite(movie) ? "heart.fill" : "heart")
+                                .foregroundColor(favoritesViewModel.isFavorite(movie) ? .red : .white)
+                            Text(favoritesViewModel.isFavorite(movie) ? "Remove from Favorites" : "Add to Favorites")
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red.opacity(0.2))
+                        .cornerRadius(12)
+                    }
+                    
+                    NavigationLink(destination: ReviewView(movieId: movie.id, userName: userName)) {
+                        HStack {
+                            Image(systemName: "text.bubble")
+                                .foregroundColor(.white)
+                            Text("View & Write Reviews")
+                                .foregroundColor(.white)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red.opacity(0.2))
+                        .cornerRadius(12)
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 8)
             }
             .padding(.vertical)
         }
-        .background(Color(red: 37/255, green: 10/255, blue: 2/255).edgesIgnoringSafeArea(.all))
-        .navigationTitle(movie.title)
+        .background(Color.black.edgesIgnoringSafeArea(.all))
         .navigationBarTitleDisplayMode(.inline)
-        .onAppear(perform: loadTrailer)
+        .onAppear {
+            loadTrailer()
+        }
         .overlay(
             Group {
                 if showHeartOverlay {
@@ -46,115 +163,7 @@ struct MovieDetailsView: View {
             }
         )
     }
-
-    // MARK: - Subviews
-
-    @ViewBuilder
-    private func trailerSection() -> some View {
-        switch trailerState {
-        case .loading:
-            ProgressView("Loading trailer…")
-                .frame(height: 220)
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal)
-        case .loaded(let url):
-            WebView(url: url)
-                .frame(height: 220)
-                .frame(maxWidth: .infinity)
-                .cornerRadius(12)
-                .padding(.horizontal)
-        case .error(let message):
-            VStack {
-                Image(systemName: "exclamationmark.triangle")
-                    .font(.largeTitle)
-                Text("Trailer not available")
-                Text(message)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-            }
-            .frame(height: 220)
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal)
-        }
-    }
-
-    private func favoriteButton() -> some View {
-        Button(action: toggleFavorite) {
-            HStack {
-                Image(systemName: favoritesViewModel.isFavorite(movie) ? "heart.fill" : "heart")
-                Text(favoritesViewModel.isFavorite(movie) ? "Remove from Favorites" : "Add to Favorites")
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.white)
-            .background(Color.clear)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.white, lineWidth: 1.5)
-            )
-            .cornerRadius(10)
-        }
-        .padding(.horizontal)
-    }
-
-    private func reviewsLink() -> some View {
-        NavigationLink(destination: ReviewView(movieId: movie.id, userName: userName)) {
-            HStack {
-                Image(systemName: "text.bubble")
-                Text("View & Write Reviews")
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.white)
-            .background(Color.blue)
-            .cornerRadius(10)
-            .padding(.horizontal)
-        }
-    }
-
-    private func movieInfoSection() -> some View {
-        HStack(alignment: .top, spacing: 16) {
-            KFImage(URL(string: movie.posterUrl))
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 120, height: 180)
-                .cornerRadius(0)
-            
-            VStack(alignment: .leading, spacing: 8) {
-                Text(movie.title)
-                    .font(.title2)
-                    .bold()
-                
-                HStack {
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                    Text(String(format: "%.1f", movie.rating))
-                }
-                
-                Text(movie.releaseDate)
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
-            }
-        }
-        .padding(.horizontal)
-        .foregroundColor(.white)
-    }
-
-    private func overviewSection() -> some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Overview")
-                .font(.headline)
-                .foregroundColor(.white)
-            
-            Text(movie.description)
-                .font(.body)
-                .foregroundColor(.white)
-        }
-        .padding()
-    }
-
-    // MARK: - Logic
-
+    
     private func loadTrailer() {
         trailerState = .loading
         let searchQuery = "\(movie.title) trailer \(movie.releaseDate.prefix(4))"
@@ -171,12 +180,11 @@ struct MovieDetailsView: View {
                     }
                 case .failure(let error):
                     trailerState = .error(error.localizedDescription)
-                    print("Trailer loading failed: \(error.localizedDescription)")
                 }
             }
         }
     }
-
+    
     private func toggleFavorite() {
         if favoritesViewModel.isFavorite(movie) {
             favoritesViewModel.removeFavorite(movie)
@@ -194,25 +202,45 @@ struct MovieDetailsView: View {
     }
 }
 
-// MARK: - WebView for YouTube Trailer
+// MARK: - Extensions for Color Analysis
+extension UIImage {
+    var averageColor: UIColor? {
+        guard let inputImage = CIImage(image: self) else { return nil }
+        let extentVector = CIVector(x: inputImage.extent.origin.x,
+                                    y: inputImage.extent.origin.y,
+                                    z: inputImage.extent.size.width,
+                                    w: inputImage.extent.size.height)
 
-struct WebView: View {
-    let url: String
+        guard let filter = CIFilter(name: "CIAreaAverage",
+                                    parameters: [kCIInputImageKey: inputImage,
+                                                 kCIInputExtentKey: extentVector]),
+              let outputImage = filter.outputImage else { return nil }
 
-    var body: some View {
-        WebViewContainer(url: URL(string: url)!)
-            .edgesIgnoringSafeArea(.all)
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull as Any])
+        context.render(outputImage,
+                       toBitmap: &bitmap,
+                       rowBytes: 4,
+                       bounds: CGRect(x: 0, y: 0, width: 1, height: 1),
+                       format: .RGBA8,
+                       colorSpace: nil)
+
+        return UIColor(red: CGFloat(bitmap[0]) / 255,
+                       green: CGFloat(bitmap[1]) / 255,
+                       blue: CGFloat(bitmap[2]) / 255,
+                       alpha: CGFloat(bitmap[3]) / 255)
     }
 }
 
-struct WebViewContainer: UIViewRepresentable {
-    let url: URL
-
-    func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
-    }
-
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.load(URLRequest(url: url))
+extension UIColor {
+    func darker(by percentage: CGFloat = 30.0) -> UIColor? {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: max(red - percentage / 100, 0.0),
+                           green: max(green - percentage / 100, 0.0),
+                           blue: max(blue - percentage / 100, 0.0),
+                           alpha: alpha)
+        }
+        return nil
     }
 }
