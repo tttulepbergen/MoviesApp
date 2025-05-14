@@ -32,8 +32,6 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
   </tr>
 </table>
 
----
-
 ### 🎬 Movie Detail View
 
 <table>
@@ -44,8 +42,6 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
   </tr>
 </table>
 
----
-
 ### 📝 Reviews View
 
 <table>
@@ -54,8 +50,6 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
     <td><img src="https://github.com/user-attachments/assets/955e45fe-d29e-4d0c-ade6-e78794458309" width="200"/></td>
   </tr>
 </table>
-
----
 
 ### 🔎 Search View
 
@@ -66,8 +60,6 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
     <td><img src="https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0" width="200"/></td>
   </tr>
 </table>
-
----
 
 ### 🔐 Login View
 
