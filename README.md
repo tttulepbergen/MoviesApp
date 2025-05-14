@@ -1,131 +1,98 @@
-# Movies App
+# 🎬 MoviesProject — Your Personal Movie Explorer App
 
-# MoviesWave - "Discover the World of Movies"
+MoviesProject is an elegant iOS app built with **Swift** that allows users to browse trending and searched movies, watch trailers via YouTube, and post reviews. The app seamlessly integrates **TMDb API**, **YouTube API**, and **Firebase Firestore** to provide real-time data and persistent user interaction.
 
-The project is a simple yet powerful movie discovery app built for iOS.  
-Users can explore trending movies, search for their favorite films, and view detailed information, including trailers directly from YouTube.  
-The app features a modern, intuitive interface, making movie exploration both seamless and enjoyable.
-
-****
-
-Code source available on GitHub: [MoviesProject](https://github.com/Sunbekova/MoviesProject)
-
-About the App:  
-The MoviesWave app connects to The Movie Database (TMDb) and YouTube API, offering users real-time information on movies and trailers. Users can view details such as the movie's title, release date, rating, and overview while enjoying smooth transitions between screens.
-
-****
-
-# Table of Contents
-1. [Technical Topics](#topics)
-2. [App Source](#app-source)
-3. [Basic Information about the App](#app-description)
-4. [Database Integration](#database-integration)
-5. [Project Preview](#project-preview)
-6. [Project Members](#project-members)
-7. [Topics Covered at This Time](#used-topics-at-this-time)
+---
 
 
-# Topics
-| Technical Side |
-|----------------|
-| MVC Architecture |
-| API Integration |
-| Networking with URLSession |
-| JSON Parsing |
-| AVPlayer for Video Playback |
-| WebKit for Embedded Trailers |
-| UserDefaults for Data Persistence |
 
+### 🎥 **Demo Video**
 
-# App Source
-Explore trending movies, search for your favorites, and watch trailers.  
+| Demo Video 1 | Demo Video 2 | Demo Video 3 |
+|--------------|--------------|--------------|
+| [![Watch Demo](https://github.com/user-attachments/assets/b1864a55-6fe9-4745-9c7a-5d93c0397abc)](https://github.com/user-attachments/assets/6ae59bf2-9f5c-485d-b05b-c988f10f4020) | [![Watch Demo](https://github.com/user-attachments/assets/cd039053-cb3d-46f9-82d7-fa7dcdaee536)](https://github.com/user-attachments/assets/cf90c9f5-6e77-4a83-85f5-1e8cd2c88941) | [![Watch Demo](https://github.com/user-attachments/assets/8e8e2954-d257-4c20-b548-25da44506d14)](https://github.com/user-attachments/assets/57dcf3cf-8131-4c62-ad31-ca33d313ab06) |
 
-| Navigation | Description |
-|------------|-------------|
-| Trending Movies | Discover popular movies updated daily |
-| Search Movies | Search for movies by name |
-| Movie Details | View detailed information about a movie and its trailer |
-| Favorites | Save favorite movies for later viewing |
-
-
-APIs used:
-- TMDb API: [https://www.themoviedb.org/](https://www.themoviedb.org/)
-- YouTube API: [https://developers.google.com/youtube/](https://developers.google.com/youtube/)
-
-
-# App Description
-
-The app offers a sleek design that enables users to:
-- View a list of trending movies, updated in real-time using the TMDb API.
-- Access detailed information about each movie, including title, release date, rating, and an overview.
-- Watch embedded trailers directly via the WebKit-based YouTube integration.
-- Search for movies quickly and efficiently.
-- Save favorite movies for quick access later.
-
-The project emphasizes simplicity and functionality while providing a smooth user experience powered by modern iOS development techniques.
-
-[Go to top](#movies-app)
-
-# Database Integration
-
-## Why We Used UserDefaults
-
-We implemented **UserDefaults** for storing favorite movies due to its simplicity and efficiency for small data storage. UserDefaults is well-suited for:
-- **Lightweight Data Storage:** Ideal for saving user preferences like movie IDs and titles.  
-- **Persistence:** Ensures user favorites are saved even after the app is closed and reopened.  
-- **Ease of Implementation:** Quick to set up without complex configurations.  
-
-## How We Used UserDefaults
-
-| Feature                | Description                                                   |
-|-----------------------|---------------------------------------------------------------|
-| **Save to Favorites**  | Users can add movies to their Favorites list.                |
-| **Remove from Favorites** | Users can remove movies from their Favorites list.        |
-| **Persistent Storage** | Favorites are saved locally and persist between app launches.|
-
-
-# Project Preview
-
-| **Trending Movies** | **Movie Details** |  **Search** | **Favorites** | 
-|----------------------|-------------------| -------------------|-------------------| 
-| ![Simulator Screenshot - iPhone 15 Pro - 2024-12-27 at 15 43 30](https://github.com/user-attachments/assets/1b3f652f-741b-483f-a3d7-ffe22b31f838) |  ![Simulator Screenshot - iPhone 15 Pro - 2024-12-27 at 15 43 42](https://github.com/user-attachments/assets/07c189f9-2d3f-410b-a3cd-fc9720c83667) | ![Simulator Screenshot - iPhone 15 Pro - 2024-12-27 at 16 46 24](https://github.com/user-attachments/assets/a77d4654-bacd-4d28-a5f8-e12b3c6e8d2d) | ![Simulator Screenshot - iPhone 15 Pro - 2024-12-27 at 16 47 00](https://github.com/user-attachments/assets/08d020aa-2f0a-4fcb-9e04-2ca8a92246e1) |
+| Demo Video 4 | Demo Video 5 | Demo Video 6 |
+|--------------|--------------|--------------|
+| [![Watch Demo](https://github.com/user-attachments/assets/f68a6efd-d1dc-4404-bba5-76dcdfeed0b2)](https://github.com/user-attachments/assets/f68a6efd-d1dc-4404-bba5-76dcdfeed0b2) | [![Watch Demo](https://github.com/user-attachments/assets/26a9b2b8-b3cb-4037-90f3-7c89e1e08a4f)](https://github.com/user-attachments/assets/26a9b2b8-b3cb-4037-90f3-7c89e1e08a4f) | [![Watch Demo](https://github.com/user-attachments/assets/51da7010-cd66-44a1-b2ff-1425b0c06a7d)](https://github.com/user-attachments/assets/51da7010-cd66-44a1-b2ff-1425b0c06a7d) |
 
 
 
 
-https://github.com/user-attachments/assets/5962b899-560d-4d74-b6ff-e60b82549be7
+
+### 🔎 Search View
+
+| Image 1 | Image 2 | Image 3 |
+|---------|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7) | ![Image 2](https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359) | ![Image 3](https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0) |
+
+---
+
+## 🚀 Features Overview
+
+| Feature                        | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| 🔍 Search Movies              | Fetches movies via **TMDb API** using search queries                       |
+| 🌟 Favorite Movies            | Add/remove favorite titles using `UserDefaults` for local persistence       |
+| ▶️ Watch Trailers             | Embedded YouTube trailers using **YouTube Data API v3** and **WebKit**      |
+| 📝 Add & View Reviews         | Store and display user reviews using **Firebase Firestore**                |
+| 🔐 Authenticated Reviews      | Only the user who wrote the review can delete it (**Firebase Auth**)       |
 
 
 
+## 📱 Screenshots
 
-Embedded Trailer Example:
+### 🏠 Home View
 
-https://www.youtube.com/embed/dummyID  
+| Image 1 | Image 2 | Image 3 |
+|---------|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/0ec4ae7c-f792-4382-b2d9-d03435e0e2bf) | ![Image 2](https://github.com/user-attachments/assets/a63cf133-bb57-4a45-a5f7-ce39189b3fb1) | ![Image 3](https://github.com/user-attachments/assets/c57d1b76-e3ed-41bb-a3ea-66b09a269660) |
 
-[Go to top](#movies-app)
+---
+
+### 🎬 Movie Detail View
+
+| Image 1 | Image 2 | Image 3 |
+|---------|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/893a3279-1ef4-4caa-9873-98b55e6c7294) | ![Image 2](https://github.com/user-attachments/assets/78e8d319-f2ad-44bf-8bba-5a76b2e5d02e) | ![Image 3](https://github.com/user-attachments/assets/dcc07d8b-6da8-43c7-8a41-24cb0e588f88) |
+
+---
+
+### 🔎 Search View
+
+| Image 1 | Image 2 | Image 3 |
+|---------|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7) | ![Image 2](https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359) | ![Image 3](https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0) |
+
+---
+
+### 📝 Reviews View
+
+| Image 1 | Image 2 |
+|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/6bb98b4e-68e8-4738-97ed-917a6c4d5da4) | ![Image 2](https://github.com/user-attachments/assets/955e45fe-d29e-4d0c-ade6-e78794458309) |
+
+---
+
+### 🔐 Login View
+
+| Image 1 | Image 2 |
+|---------|---------|
+| ![Image 1](https://github.com/user-attachments/assets/a9c6f9e8-064d-4373-8ed3-e3283f583d18) | ![Image 2](https://github.com/user-attachments/assets/9b3a6e87-1980-4bab-91e8-95cbd0dadc06) |
 
 
-# Project Members
-| Full Name | ID | GitHub |
-|-----------|----|--------|
-| Suanbekova Aisha | 22B030589 | [Suanbekova](https://github.com/Sunbekova/) |
-| Tulepbergen Anel | 22B030602| [Tulepbergen](https://github.com/tttulepbergen) |
-| Kemel Merey | 22B030615 | [Kemel](https://github.com/kemelmerey) |
+## 🧱 App Architecture
 
-[Go to top](#movies-app)
+The project follows the **MVVM** architecture pattern:
 
+| Layer       | Responsibilities                                                                 |
+|-------------|------------------------------------------------------------------------------------|
+| `Model`     | Structures like `Title`, `Review`, `VideoElement`, conforming to `Codable`         |
+| `ViewModel` | Handles business logic, API calls, and Firebase operations                         |
+| `View`      | SwiftUI / UIKit views for displaying trending movies, details, reviews, etc.       |
 
-# Used Topics at This Time
-
-| Technical Side             | Topics Covered |
-|----------------------------|----------------|
-| MVC Architecture           | ✓ |
-| Networking with URLSession | ✓ |
-| JSON Parsing               | ✓ |
-| TMDb API                   | ✓ |
-| YouTube API                | ✓ |
-| AVPlayer for Trailers      | ✓ |
-| WebKit Integration         | ✓ |
-| UserDefaults for Persistence | ✓ |
-
-[Go to top](#movies-app)
+🔗 **Navigation flow** is simple and intuitive:
+```plaintext
+Home → Search → Movie Detail → Watch Trailer / Leave Review
+                         ↑
+                   Favorites (local)
