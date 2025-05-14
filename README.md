@@ -8,14 +8,14 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><a href="https://github.com/user-attachments/assets/87d1e74e-1ff0-4a9d-a290-eea8c6c45668"><img src="https://github.com/user-attachments/assets/87d1e74e-1ff0-4a9d-a290-eea8c6c45668" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/ee3ba0bb-7de0-441e-9104-c0cac9206b0a"><img src="https://github.com/user-attachments/assets/ee3ba0bb-7de0-441e-9104-c0cac9206b0a" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/5671049f-2d5b-4532-83be-99c69a896610"><img src="https://github.com/user-attachments/assets/5671049f-2d5b-4532-83be-99c69a896610" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/4ddbadb9-32ea-437f-a1a6-fd8dd1b541c3"><img src="https://github.com/user-attachments/assets/4ddbadb9-32ea-437f-a1a6-fd8dd1b541c3" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/ec2b17f3-d9b4-40b5-8a31-6867f9a47c69"><img src="https://github.com/user-attachments/assets/ec2b17f3-d9b4-40b5-8a31-6867f9a47c69" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/ef18f163-25e8-49cb-9d9a-b2ad0b336834"><img src="https://github.com/user-attachments/assets/ef18f163-25e8-49cb-9d9a-b2ad0b336834" width="200"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/user-attachments/assets/a97f5a1b-af63-43f8-b8eb-de55ea3710c4"><img src="https://github.com/user-attachments/assets/a97f5a1b-af63-43f8-b8eb-de55ea3710c4" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/6fa76664-89e6-4eb9-9e99-ee38c8cd7d33"><img src="https://github.com/user-attachments/assets/6fa76664-89e6-4eb9-9e99-ee38c8cd7d33" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/b9452aeb-7dc9-4ef5-8448-f5da20383f81"><img src="https://github.com/user-attachments/assets/b9452aeb-7dc9-4ef5-8448-f5da20383f81" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/153223c0-344c-4d49-b5c7-025587b8ef66"><img src="https://github.com/user-attachments/assets/153223c0-344c-4d49-b5c7-025587b8ef66" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/3b4f4d23-1ad5-405a-bd60-0aac5b76140f"><img src="https://github.com/user-attachments/assets/3b4f4d23-1ad5-405a-bd60-0aac5b76140f" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/e6ce4529-123e-4274-8ea1-1a1b19e65487"><img src="https://github.com/user-attachments/assets/e6ce4529-123e-4274-8ea1-1a1b19e65487" width="200"/></a></td>
   </tr>
 </table>
 
@@ -26,9 +26,9 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 ### 🏠 Home View
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/45663d89-7063-4a40-8de1-9bad79413391" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/2131ec95-52a0-4b50-94ad-30309ecb3acc" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6c5ff19e-99b6-4758-b041-339786ff4c11" width="200"/></td>
   </tr>
 </table>
 
@@ -36,9 +36,8 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/893a3279-1ef4-4caa-9873-98b55e6c7294" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/78e8d319-f2ad-44bf-8bba-5a76b2e5d02e" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/dcc07d8b-6da8-43c7-8a41-24cb0e588f88" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/b5fa2a54-e97e-4e1f-9de2-56b3dba0dd89" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/e0ee8f9f-f566-473d-aa49-bbb134d3562d" width="200"/></td>
   </tr>
 </table>
 
@@ -46,8 +45,10 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/6bb98b4e-68e8-4738-97ed-917a6c4d5da4" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/955e45fe-d29e-4d0c-ade6-e78794458309" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/b6aa85bf-9d9e-4ac5-ad10-b93c702a2652" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/2a2a786a-7f1f-4294-a0fc-73b4c17f1cb6" width="200"/></td>       
+    <td><img src="https://github.com/user-attachments/assets/2413e66b-7a47-4fbd-b145-0662909660e1" width="200"/></td>
+
   </tr>
 </table>
 
@@ -55,9 +56,9 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/1fe904c6-0ac5-40c2-9b11-dacb45023492" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/d026ad87-fa12-4c69-afa5-4cefb5d75c35" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/ff77a55e-8007-409c-8f6a-a6ab4ba29526" width="200"/></td>
   </tr>
 </table>
 
@@ -65,8 +66,8 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/a9c6f9e8-064d-4373-8ed3-e3283f583d18" width="200"/></td>
-    <td><img src="https://github.com/user-attachments/assets/9b3a6e87-1980-4bab-91e8-95cbd0dadc06" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/73c3f540-1442-4379-b94c-4056d0de93ca" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/c0e4a262-946a-4f71-9c23-0b9c65a53c18" width="200"/></td>
   </tr>
 </table>
 
@@ -96,11 +97,11 @@ The project follows the **MVVM** architecture pattern:
 
 ---
 
-# Project Members
+## Project Members
 | Full Name | ID | GitHub |
 |-----------|----|--------|
 | Suanbekova Aisha | 22B030589 | [Suanbekova](https://github.com/Sunbekova/) |
 | Tulepbergen Anel | 22B030602| [Tulepbergen](https://github.com/tttulepbergen) |
-| Stelmakh Polina | 22B030615 | [Stelmakh](https://github.com/po133na) |
+| Stelmakh Polina | 22B030588 | [Stelmakh](https://github.com/po133na) |
 
 
