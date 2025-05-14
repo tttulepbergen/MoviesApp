@@ -94,4 +94,13 @@ The project follows the **MVVM** architecture pattern:
 | `ViewModel` | Handles business logic, API calls, and Firebase operations                         |
 | `View`      | SwiftUI / UIKit views for displaying trending movies, details, reviews, etc.       |
 
+---
+
+# Project Members
+| Full Name | ID | GitHub |
+|-----------|----|--------|
+| Suanbekova Aisha | 22B030589 | [Suanbekova](https://github.com/Sunbekova/) |
+| Tulepbergen Anel | 22B030602| [Tulepbergen](https://github.com/tttulepbergen) |
+| Kemel Merey | 22B030615 | [Kemel](https://github.com/kemelmerey) |
+
 
