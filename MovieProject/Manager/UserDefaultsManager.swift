@@ -1,10 +1,3 @@
-//
-//  UserDefaultManager.swift
-//  MovieProject
-//
-//  Created by Тулепберген Анель  on 08.05.2025.
-//
-
 import Foundation
 
 struct UserDefaultsManager {

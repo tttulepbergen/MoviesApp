@@ -1,10 +1,3 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Тулепберген Анель  on 09.05.2025.
-//
-
 import SwiftUI
 import FirebaseAuth
 
@@ -18,13 +11,11 @@ struct MovieApp: View {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.black // true black for dark mode
+        appearance.backgroundColor = UIColor.black
 
-        // Highlight selected tab in red
         appearance.stackedLayoutAppearance.selected.iconColor = .systemRed
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.systemRed]
 
-        // Unselected tabs
         appearance.stackedLayoutAppearance.normal.iconColor = .lightGray
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
 
@@ -66,7 +57,6 @@ struct MovieApp: View {
             }
         }
 
-    // Helper functions for memberSince and userID
     func getMemberSinceDate() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium

@@ -1,10 +1,3 @@
-//
-//  WebView.swift
-//  MovieProject
-//
-//  Created by Тулепберген Анель  on 12.05.2025.
-//
-
 import SwiftUI
 import WebKit
 

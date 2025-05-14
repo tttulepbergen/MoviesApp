@@ -13,7 +13,6 @@ struct HomeView: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack(spacing: 0) {
-                    // Featured movies carousel
                     if !trendingMovies.isEmpty {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("This Week")
@@ -32,13 +31,12 @@ struct HomeView: View {
                     }
 
 
-                    // Top 10 Movies
                     SectionView(title: "Top 10 Movies", items: topMovies)
 
-                    // Top 10 TV Shows
+       
                     SectionView(title: "Top 10 TV Shows", items: topTVShows)
 
-                    // Trending Movies list
+             
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Trending Movies")
                             .font(.title2)
@@ -129,7 +127,7 @@ struct CarouselView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
             .frame(height: 300)
 
-            // Название фильма ЖИРНЫМ
+      
             if movies.indices.contains(selectedIndex) {
                 Text(movies[selectedIndex].title)
                     .font(.headline)
@@ -139,7 +137,7 @@ struct CarouselView: View {
                     .frame(width: geometry.size.width * 0.9)
             }
         }
-        .frame(height: 340) // 300 постер + 40 для текста и индикатора
+        .frame(height: 340)
     }
 }
 
@@ -156,7 +154,6 @@ struct CarouselView: View {
     }
 
 
-// MARK: - Section View
 struct SectionView: View {
     var title: String
     var items: [Title]

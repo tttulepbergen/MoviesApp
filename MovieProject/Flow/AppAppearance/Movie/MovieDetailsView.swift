@@ -148,9 +148,8 @@ struct MovieDetailsView: View {
                         }
                         .padding(.horizontal)
 
-                        // Action buttons at the bottom
+                  
                         VStack(spacing: 12) {
-                            // Add to Favorites button
                             Button(action: toggleFavorite) {
                                 HStack {
                                     Image(systemName: favoritesViewModel.isFavorite(movie) ? "heart.fill" : "heart")
@@ -168,7 +167,7 @@ struct MovieDetailsView: View {
                                 .cornerRadius(10)
                             }
 
-                            // Reviews button
+               
                             NavigationLink(destination: ReviewView(movieId: movie.id, movieTitle: movie.title, userName: userName)) {
                                 HStack {
                                     Image(systemName: "text.bubble")
@@ -267,7 +266,6 @@ struct MovieDetailsView: View {
     }
 }
 
-// MARK: - Extensions for Color Analysis
 extension UIImage {
     var averageColor: UIColor? {
         guard let inputImage = CIImage(image: self) else { return nil }
@@ -310,4 +308,4 @@ extension UIColor {
     }
 }
 
-// MARK: - WebView for YouTube Trailer
+

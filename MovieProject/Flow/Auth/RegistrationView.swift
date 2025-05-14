@@ -1,10 +1,3 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Polina Stelmakh on 09.05.2025.
-//  Rewrited by Aisha Suanbekova on 10.05.2025
-
 import SwiftUI
 
 struct RegistrationView: View {
@@ -22,7 +15,6 @@ struct RegistrationView: View {
             VStack(spacing: 32) {
                 Spacer()
                 
-                // Logo and Title
                 VStack(spacing: 16) {
                     Image(systemName: "person.crop.circle.badge.plus")
                         .resizable()
@@ -37,7 +29,6 @@ struct RegistrationView: View {
                 }
                 .padding(.bottom, 32)
                 
-                // Registration Form
                 VStack(spacing: 20) {
                     TextField("Name", text: $viewModel.name)
                         .autocapitalization(.words)
@@ -78,7 +69,6 @@ struct RegistrationView: View {
                 }
                 .padding(.horizontal, 32)
                 
-                // Sign In Option
                 HStack {
                     Text("Already have an account?")
                         .foregroundColor(.white.opacity(0.8))

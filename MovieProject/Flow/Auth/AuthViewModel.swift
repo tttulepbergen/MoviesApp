@@ -1,10 +1,3 @@
-//
-//  AuthViewModel.swift
-//  MovieProject
-//
-//  Created by Aisha Suanbekova Bakytjankyzy on 10.05.2025.
-//
-
 import Foundation
 import FirebaseAuth
 import Combine

@@ -14,8 +14,7 @@ enum APIError: Error {
 
 class APICaller {
     static let shared = APICaller()
-    
-    // MARK: - Get Trending Movies
+ 
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         let url = "\(Constants.baseURL)/3/trending/movie/day?api_key=\(Constants.API_KEY)"
         
@@ -29,7 +28,6 @@ class APICaller {
         }
     }
 
-    // MARK: - Search Movies
     func search(with query: String, completion: @escaping (Result<[Title], Error>) -> Void) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = "\(Constants.baseURL)/3/search/movie?api_key=\(Constants.API_KEY)&query=\(query)"
@@ -44,7 +42,6 @@ class APICaller {
         }
     }
 
-    // MARK: - Get YouTube Video for Movie
     func getMovie(with query: String, completion: @escaping (Result<VideoElement, Error>) -> Void) {
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
         let url = "\(Constants.YoutubeBaseURL)q=\(query)&key=\(Constants.YoutubeAPI_KEY)&type=video&part=snippet"
@@ -63,7 +60,6 @@ class APICaller {
         }
     }
 
-    // MARK: - Get Top TV Shows
     func getTopTVShows(completion: @escaping (Result<[Title], Error>) -> Void) {
         let url = "\(Constants.baseURL)/3/tv/top_rated?api_key=\(Constants.API_KEY)"
         
@@ -77,7 +73,6 @@ class APICaller {
         }
     }
 
-    // MARK: - Get Ongoing TV Shows
     func getOngoingTVShows(completion: @escaping (Result<[Title], Error>) -> Void) {
         let url = "\(Constants.baseURL)/3/tv/on_the_air?api_key=\(Constants.API_KEY)"
         
@@ -91,7 +86,6 @@ class APICaller {
         }
     }
     
-        // MARK: - Get Popular Movies
         func getPopularMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
             let url = "\(Constants.baseURL)/3/movie/popular"
             let parameters: Parameters = ["api_key": Constants.API_KEY]
@@ -106,7 +100,6 @@ class APICaller {
             }
         }
     
-        // MARK: - Get Upcoming Movies
         func getUpcomingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
             let url = "\(Constants.baseURL)/3/movie/upcoming"
             let parameters: Parameters = ["api_key": Constants.API_KEY]

@@ -1,10 +1,3 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Polina Stelmakh on 09.05.2025.
-//  Rewrited by Aisha Suanbekova on 10.05.2025
-
 import SwiftUI
 
 struct LoginView: View {
@@ -20,7 +13,7 @@ struct LoginView: View {
             VStack(spacing: 32) {
                 Spacer()
                 
-                // Logo and Title
+
                 VStack(spacing: 16) {
                     Image(systemName: "film")
                         .resizable()
@@ -35,7 +28,6 @@ struct LoginView: View {
                 }
                 .padding(.bottom, 32)
                 
-                // Login Form
                 VStack(spacing: 20) {
                     TextField("Email", text: $viewModel.email)
                         .keyboardType(.emailAddress)
@@ -63,7 +55,6 @@ struct LoginView: View {
                 }
                 .padding(.horizontal, 32)
                 
-                // Additional Options
                 VStack(spacing: 16) {
                     Button("Forgot Password?") {
                         viewModel.sendPasswordReset(email: viewModel.email)

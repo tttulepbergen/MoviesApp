@@ -1,10 +1,3 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Polina Stelmakh on 09.05.2025.
-//  Rewrited by Aisha Suanbekova on 10.05.2025
-
 import SwiftUI
 
 struct AuthFlowView: View {

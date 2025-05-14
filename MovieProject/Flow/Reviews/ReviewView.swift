@@ -1,10 +1,3 @@
-//
-//  ReviewView.swift
-//  MovieProject
-//
-//  Created by Aisha Suanbekova Bakytjankyzy on 11.05.2025.
-//
-
 import SwiftUI
 import FirebaseAuth
 
@@ -19,14 +12,12 @@ struct ReviewView: View {
 
     var body: some View {
         VStack {
-            // Movie Title
             Text(movieTitle.uppercased())
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .padding(.top)
             
-            // Reviews List
             List {
                 ForEach(viewModel.reviews) { review in
                     VStack(alignment: .leading, spacing: 8) {
@@ -37,7 +28,6 @@ struct ReviewView: View {
                             
                             Spacer()
                             
-                            // Rating Stars
                             HStack(spacing: 2) {
                                 ForEach(1...5, id: \.self) { star in
                                     Image(systemName: star <= review.rating ? "star.fill" : "star")
@@ -54,7 +44,6 @@ struct ReviewView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                         
-                        // Delete Button for Current User's Review
                         if Auth.auth().currentUser?.uid == review.userId {
                             Button(action: {
                                 viewModel.deleteReview(review)
@@ -76,7 +65,6 @@ struct ReviewView: View {
             }
             .listStyle(PlainListStyle())
             
-            // Add Review Section
             Divider()
                 .background(Color.gray)
                 .padding(.vertical)
@@ -86,13 +74,12 @@ struct ReviewView: View {
                     Text("Your rating:")
                         .foregroundColor(.white)
                     Spacer()
-                    // Custom Stars
                     HStack(spacing: 2) {
                         ForEach(1...5, id: \.self) { star in
                             Image(systemName: star <= rating ? "star.fill" : "star")
                                 .foregroundColor(star <= rating ? .yellow : .gray)
                                 .onTapGesture {
-                                    rating = star // Update rating when a star is tapped
+                                    rating = star 
                                 }
                         }
                     }

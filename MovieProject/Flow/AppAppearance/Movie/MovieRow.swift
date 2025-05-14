@@ -1,7 +1,6 @@
 import SwiftUI
 import Kingfisher
 
-// MARK: - Жанры (полученные с API)
 let genres = [
     Genre(id: 28, name: "Action"),
     Genre(id: 12, name: "Adventure"),
@@ -29,11 +28,9 @@ struct Genre {
     let name: String
 }
 
-// MARK: - MovieRow (подробный)
 struct MovieRow: View {
     let movie: Title
     
-    // Short description that ends at first period
     private var shortDescription: String {
         let desc = movie.overview ?? "No description available."
         if let endIndex = desc.firstIndex(of: ".") {
@@ -42,21 +39,18 @@ struct MovieRow: View {
         return desc
     }
     
-    // Comma-separated genre names
     private var genreText: String {
         movie.genre_ids.compactMap { genreId in
             genres.first { $0.id == genreId }?.name
         }.joined(separator: ", ")
     }
     
-    // Primary title (falls back to alternative titles if needed)
     private var primaryTitle: String {
         movie.title
     }
     
     var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            // Movie poster
             KFImage(URL(string: "https://image.tmdb.org/t/p/w500\(movie.poster_path ?? "")"))
                 .placeholder {
                     Image(systemName: "photo.artframe")
@@ -71,9 +65,7 @@ struct MovieRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .shadow(radius: 4)
             
-            // Movie details
             VStack(alignment: .leading, spacing: 8) {
-                // Title
                 Text(primaryTitle)
                     .font(.headline)
                     .fontWeight(.semibold)
@@ -81,7 +73,6 @@ struct MovieRow: View {
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
                 
-                // Genres
                 if !genreText.isEmpty {
                     Text(genreText)
                         .font(.subheadline)
@@ -89,7 +80,6 @@ struct MovieRow: View {
                         .lineLimit(1)
                 }
                 
-                // Description
                 Text(shortDescription)
                     .font(.footnote)
                     .foregroundColor(.white.opacity(0.8))

@@ -1,12 +1,9 @@
 import Foundation
 
-// Ответ от API с трендовыми фильмами
 struct TrendingTitleResponse: Codable {
-    let results: [Title] // Список фильмов
+    let results: [Title]
 }
 
-// Структура для описания фильма
-// Структура для описания фильма
 struct Title: Codable, Identifiable, Equatable {
     let id: Int
     let original_name: String?
@@ -15,7 +12,7 @@ struct Title: Codable, Identifiable, Equatable {
     let overview: String?
     let release_date: String?
     let vote_average: Double
-    let genre_ids: [Int] // Добавь это поле для жанров
+    let genre_ids: [Int]
 
     var title: String {
         return original_title ?? original_name ?? "No Title"

@@ -1,10 +1,3 @@
-//
-//  MovieProjectApp.swift
-//  MovieProject
-//
-//  Created by Polina Stelmakh on 09.05.2025.
-//
-
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
@@ -28,7 +21,6 @@ struct ProfileView: View {
                 Color.black.edgesIgnoringSafeArea(.all)
                 
                 VStack(spacing: 8) {
-                    // Profile Header
                     Spacer().frame(height: 8)
                     Image(systemName: "person.crop.circle.fill")
                         .resizable()
@@ -71,7 +63,6 @@ struct ProfileView: View {
                         .background(Color.white.opacity(0.3))
                         .padding(.horizontal)
                     
-                    // Segmented Control
                     Picker("Options", selection: $selectedSegment) {
                         Text("Favorites").tag(0)
                         Text("Reviews").tag(1)
@@ -85,9 +76,7 @@ struct ProfileView: View {
                             .foregroundColor(.white)
                     }
                     
-                    // Content
                     if selectedSegment == 0 {
-                        // Favorites List
                         if favoritesViewModel.favoriteMovies.isEmpty {
                             Text("No favorites yet")
                                 .foregroundColor(.white)
@@ -105,7 +94,6 @@ struct ProfileView: View {
                             .listStyle(PlainListStyle())
                         }
                     } else {
-                        // Reviews List
                         if filteredReviews.isEmpty {
                             Text(showAllReviews ? "No reviews available" : "You haven't written any reviews yet")
                                 .foregroundColor(.white)
@@ -132,7 +120,6 @@ struct ProfileView: View {
                     
                     Spacer()
                     
-                    // Logout Button
                     Button(action: logout) {
                         Text("Logout")
                             .frame(maxWidth: .infinity)
@@ -181,12 +168,6 @@ struct ProfileView: View {
         let movieIds = Set(reviewViewModel.reviews.map { $0.movieId })
         
         for movieId in movieIds {
-            // Здесь можно реализовать загрузку названий фильмов из:
-            // 1. Локального кеша
-            // 2. Firestore
-            // 3. API TMDB
-            
-            // Пример временной реализации:
             movieTitles[movieId] = "Movie \(movieId)"
         }
     }
