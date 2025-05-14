@@ -8,14 +8,14 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 <table>
   <tr>
-    <td><a href="https://github.com/user-attachments/assets/6ae59bf2-9f5c-485d-b05b-c988f10f4020"><img src="https://github.com/user-attachments/assets/b1864a55-6fe9-4745-9c7a-5d93c0397abc" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/cf90c9f5-6e77-4a83-85f5-1e8cd2c88941"><img src="https://github.com/user-attachments/assets/cd039053-cb3d-46f9-82d7-fa7dcdaee536" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/57dcf3cf-8131-4c62-ad31-ca33d313ab06"><img src="https://github.com/user-attachments/assets/8e8e2954-d257-4c20-b548-25da44506d14" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/87d1e74e-1ff0-4a9d-a290-eea8c6c45668"><img src="https://github.com/user-attachments/assets/87d1e74e-1ff0-4a9d-a290-eea8c6c45668" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/ee3ba0bb-7de0-441e-9104-c0cac9206b0a"><img src="https://github.com/user-attachments/assets/ee3ba0bb-7de0-441e-9104-c0cac9206b0a" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/5671049f-2d5b-4532-83be-99c69a896610"><img src="https://github.com/user-attachments/assets/5671049f-2d5b-4532-83be-99c69a896610" width="200"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/user-attachments/assets/f68a6efd-d1dc-4404-bba5-76dcdfeed0b2"><img src="https://github.com/user-attachments/assets/f68a6efd-d1dc-4404-bba5-76dcdfeed0b2" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/26a9b2b8-b3cb-4037-90f3-7c89e1e08a4f"><img src="https://github.com/user-attachments/assets/26a9b2b8-b3cb-4037-90f3-7c89e1e08a4f" width="200"/></a></td>
-    <td><a href="https://github.com/user-attachments/assets/51da7010-cd66-44a1-b2ff-1425b0c06a7d"><img src="https://github.com/user-attachments/assets/51da7010-cd66-44a1-b2ff-1425b0c06a7d" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/a97f5a1b-af63-43f8-b8eb-de55ea3710c4"><img src="https://github.com/user-attachments/assets/a97f5a1b-af63-43f8-b8eb-de55ea3710c4" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/6fa76664-89e6-4eb9-9e99-ee38c8cd7d33"><img src="https://github.com/user-attachments/assets/6fa76664-89e6-4eb9-9e99-ee38c8cd7d33" width="200"/></a></td>
+    <td><a href="https://github.com/user-attachments/assets/b9452aeb-7dc9-4ef5-8448-f5da20383f81"><img src="https://github.com/user-attachments/assets/b9452aeb-7dc9-4ef5-8448-f5da20383f81" width="200"/></a></td>
   </tr>
 </table>
 
