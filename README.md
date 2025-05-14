@@ -26,9 +26,14 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 
 ### 🔎 Search View
 
-| Image 1 | Image 2 | Image 3 |
-|---------|---------|---------|
-| ![Image 1](https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7) | ![Image 2](https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359) | ![Image 3](https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0) |
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0" width="200"/></td>
+  </tr>
+</table>
+
 
 ---
 
@@ -47,10 +52,13 @@ MoviesProject is an elegant iOS app built with **Swift** that allows users to br
 ## 📱 Screenshots
 
 ### 🏠 Home View
-
-| Image 1 | Image 2 | Image 3 |
-|---------|---------|---------|
-| ![Image 1](https://github.com/user-attachments/assets/0ec4ae7c-f792-4382-b2d9-d03435e0e2bf) | ![Image 2](https://github.com/user-attachments/assets/a63cf133-bb57-4a45-a5f7-ce39189b3fb1) | ![Image 3](https://github.com/user-attachments/assets/c57d1b76-e3ed-41bb-a3ea-66b09a269660) |
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/2658f352-eec1-490d-b358-91ffd6db95f7" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/0a36dbf4-d2a3-42a5-8da9-aac4685f3359" width="200"/></td>
+    <td><img src="https://github.com/user-attachments/assets/6c864c9e-8015-4cbe-aa72-a1eefa0852f0" width="200"/></td>
+  </tr>
+</table>
 
 ---
 
