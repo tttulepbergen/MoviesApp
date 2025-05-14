@@ -101,6 +101,6 @@ The project follows the **MVVM** architecture pattern:
 |-----------|----|--------|
 | Suanbekova Aisha | 22B030589 | [Suanbekova](https://github.com/Sunbekova/) |
 | Tulepbergen Anel | 22B030602| [Tulepbergen](https://github.com/tttulepbergen) |
-| Kemel Merey | 22B030615 | [Kemel](https://github.com/kemelmerey) |
+| Stelmakh Polina | 22B030615 | [Kemel](https://github.com/kemelmerey) |
 
 
